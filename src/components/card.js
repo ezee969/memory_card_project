@@ -1,7 +1,6 @@
-
 const Card = (props) => {
     return(
-        <div className="card">
+        <div id={props.id} key={props.id} onClick={props.handleCardClick} className="card">
             {props.number}
         </div>
     )

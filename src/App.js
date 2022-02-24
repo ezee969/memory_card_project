@@ -3,10 +3,13 @@ import Body from "./components/body";
 import Footer from "./components/footer"
 
 function App() {
+
+  
+
   return (
     <div className="App">
       <Header />
-      <Body />
+      <div> <Body /> </div>
       <Footer />
     </div>
   );
