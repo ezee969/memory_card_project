@@ -1,14 +1,13 @@
 import React ,{ useState, useEffect} from "react"
-import ReactDOM from 'react-dom'
 import Cards from "./cards"
 import scoreImg from "../assets/score.png"
 export const MyContext = React.createContext()
     
 const Body = () => {
 
-    const [cards, setCards] = useState([]);
+    const [cards, setCards] = useState([]); //intended for an array of card objs, each one with a number:x and an id:uniqid
     const [score, setScore] = useState(0);
-    const [chosedCardVal, setChoosedCardVal] = useState("");
+    const [chosedCardVal, setChoosedCardVal] = useState(""); //state for the first card choosed by the user
     const [highScore, setHighScore] = useState("0"); 
     const [firstRound, setFirstRound] = useState(true)
 

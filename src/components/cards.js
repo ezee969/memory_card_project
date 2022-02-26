@@ -3,19 +3,19 @@ import { useEffect } from "react"
 import uniqid from "uniqid";
 
 const Cards = (props) => {
-     //destructuring the setState props so no warning is given when i use it inside useEffect
-    const setCards = props.setCards
-    
+
     useEffect(() => {
+        //effect that only runs when the Cards component is mounted, it fills the cards array (setCards) with 40 card objs
         const addCards = () => {
             for (let i=0; i < 40; i++) {
-                setCards(currentArray => currentArray.concat({number:Math.floor(Math.random()*100),id:uniqid()}))
+                props.setCards(currentArray => currentArray.concat({number:Math.floor(Math.random()*100),id:uniqid()}))
             }
         };
         addCards();
-    },[setCards]);
+    },[]);
 
     const handleCardPick = (event) => {
+        //function that checks game state (1st round or 2nd round forward) and acts acordingly when a card is clicked
         const pickedCardValue = event.target.innerHTML;
 
         if (props.firstRound) { 
@@ -28,6 +28,7 @@ const Cards = (props) => {
     };
 
     const shuffleCards = () => {
+        //shuffles all card objs inside cards array
         return props.cards.sort((a, b) => 0.5 - Math.random());
     };
     
@@ -42,6 +43,7 @@ const Cards = (props) => {
     };
 
     const compareScores = () => {
+        // compares the actual score to the highest score
         if (props.score > props.highScore) props.setHighScore(props.score); 
     };
 
