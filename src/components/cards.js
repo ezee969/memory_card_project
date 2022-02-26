@@ -3,30 +3,52 @@ import { useEffect } from "react"
 import uniqid from "uniqid";
 
 const Cards = (props) => {
-
-    const setCards = props.setCards //destructuring the setState prop so no warning is given when i use it inside useEffect
-
-    const handleCardClick = () =>{
-        console.log(props.cards)
-    }
-
-    // useEffect(() => {
-    //     // add event listener to every card on 1st mount to save the value of the first card, then errase it with a return
-    // },[])
-
+     //destructuring the setState props so no warning is given when i use it inside useEffect
+    const setCards = props.setCards
+    
     useEffect(() => {
         const addCards = () => {
-            for (let i=0; i < 8; i++) {
-                setCards(currentArray => currentArray.concat({number:i,id:uniqid()}))
+            for (let i=0; i < 40; i++) {
+                setCards(currentArray => currentArray.concat({number:Math.floor(Math.random()*100),id:uniqid()}))
             }
+        };
+        addCards();
+    },[setCards]);
+
+    const handleCardPick = (event) => {
+        const pickedCardValue = event.target.innerHTML;
+
+        if (props.firstRound) { 
+            props.setChoosedCardVal(pickedCardValue)
+            props.setFirstRound(false)
         }
-        addCards()
-    },[setCards])
+        else {
+            compareCardPick(pickedCardValue);
+        };
+    };
+
+    const shuffleCards = () => {
+        return props.cards.sort((a, b) => 0.5 - Math.random());
+    };
+    
+    const compareCardPick = (pickedCardValue) =>{
+        if (pickedCardValue === props.chosedCardVal) {
+            props.setScore(props.score+1);
+            props.setCards(shuffleCards());
+        }
+        else {
+            compareScores()
+        };
+    };
+
+    const compareScores = () => {
+        if (props.score > props.highScore) props.setHighScore(props.score); 
+    };
 
     return(
         <div id="cards-cont">
             {props.cards.map( card => {
-                return <Card number={card.number} handleCardClick={handleCardClick} id={card.id} />
+                return <Card handleCardPick={handleCardPick} number={card.number} id={card.id} />
             })}
         </div>
     )

@@ -1,36 +1,44 @@
-import { useState, useEffect } from "react"
+import React ,{ useState, useEffect} from "react"
+import ReactDOM from 'react-dom'
 import Cards from "./cards"
 import scoreImg from "../assets/score.png"
-
+export const MyContext = React.createContext()
+    
 const Body = () => {
 
-    const [cards,setCards] = useState([])
-    const [score,setScore] = useState(0)
-    const [chosedCardVal , setChoosedCardVal] = useState("")
-    const [highScore,setHighScore] = useState("0") 
-    
-    // useEffect(() => {
-    //     // add event listener to every card on every render to compare its value to the chosedCardVal, if its the same {score++}
-    //     // also to shuffle all cards 
-    // },[])
+    const [cards, setCards] = useState([]);
+    const [score, setScore] = useState(0);
+    const [chosedCardVal, setChoosedCardVal] = useState("");
+    const [highScore, setHighScore] = useState("0"); 
+    const [firstRound, setFirstRound] = useState(true)
 
-    // useEffect(() => {
-    //     // ReactDOM.unmountComponentAtNode(document.getElementById('root'));
-    //     // when higscores updates unmount Cards component and mount it again (new g)
-    // },[highScore])
+
+    useEffect(() => {
+        console.log("test")
+    },[highScore])
     
     return(
         <div id="body-cont">
             <div id="scores-cont">
-                <div id="score-cont">
-                    SCORE: {score}
+                <div id="score-cont"> 
+                    SCORE: {score} 
                 </div>
                 <div id="high-score-cont">
                     <img id="score-img" src={scoreImg} alt="score img"></img>
                     HIGH-SCORE: {highScore}
                 </div>
             </div>
-            <Cards setCards={setCards} cards={cards}/>
+            <Cards  setChoosedCardVal={setChoosedCardVal}
+                    chosedCardVal={chosedCardVal} 
+                    firstRound={firstRound} 
+                    setFirstRound={setFirstRound}
+                    setCards={setCards} 
+                    cards={cards}
+                    setScore={setScore} 
+                    score={score} 
+                    highScore = {highScore}
+                    setHighScore = {setHighScore} 
+                />
         </div>
     )
 }

@@ -49,6 +49,7 @@ body {
   padding: 30px 80px;
   height: 84vh; 
   box-sizing: border-box;
+  align-items: center;
 }
 
 #scores-cont{
@@ -91,29 +92,29 @@ body {
 #cards-cont{
   display: flex;
   flex-direction: row;
-  box-sizing: border-box;
-  gap: 30px;
+  gap: 27px;
   background-color: #00A4CCFF;
   flex-wrap: wrap;
-  align-content: flex-start;
+  width: 80vw;
 }
 
 /* -----------CARD----------- */
 .card{
   display: flex;
-  width: 8.7vw;
-  height: 18.7vh;
+  width: 6.5vw;
+  height: 13.5vh;
   box-shadow: 0px 0px 5px 2.5px rgb(255, 41, 155);
-  border: #FF3EA5FF solid 5px;
+  border: #FF3EA5FF solid 3px;
   border-radius: 5px;
   box-sizing: border-box;
   transition: 0.2s;
   align-items: center;
   justify-content: center;
   color: #00A4CCFF;
-  font-size: 75px;
+  font-size: 60px;
   font-weight: bolder;
   background-color: #EDFF00FF;
+  flex-grow: 1;
 }
 
 .card:hover{
