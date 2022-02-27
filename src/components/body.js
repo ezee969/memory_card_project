@@ -11,11 +11,10 @@ const Body = () => {
     const [highScore, setHighScore] = useState("0"); 
     const [firstRound, setFirstRound] = useState(true)
 
-
-    useEffect(() => {
-        console.log("test")
+    useEffect( () => {
+        setScore(0)
     },[highScore])
-    
+
     return(
         <div id="body-cont">
             <div id="scores-cont">
