@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/memory_card_project/static/css/main.c7cf5a5f.css",
+    "main.js": "/memory_card_project/static/js/main.854cac09.js",
+    "static/media/cerebro.png": "/memory_card_project/static/media/cerebro.04e6dfed423b11b9e873.png",
+    "static/media/github-icon.png": "/memory_card_project/static/media/github-icon.a855c3975c028d8069f5.png",
+    "static/media/score.png": "/memory_card_project/static/media/score.4883b2748ada350683a1.png",
+    "index.html": "/memory_card_project/index.html",
+    "main.c7cf5a5f.css.map": "/memory_card_project/static/css/main.c7cf5a5f.css.map",
+    "main.854cac09.js.map": "/memory_card_project/static/js/main.854cac09.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c7cf5a5f.css",
+    "static/js/main.854cac09.js"
+  ]
+}
